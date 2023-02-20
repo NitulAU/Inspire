@@ -1,0 +1,57 @@
+.sec{
+    &:hover{
+        .heading-secondary::after{
+            transform: scaleX(0);
+        }
+    }
+}
+.section-about{
+    background-color: $col_grey_1;
+    padding: 25rem 0;
+    margin-top: -20vh;
+    margin-bottom: -20vh;
+    // @include respond(mid-screen){
+    //     margin-bottom: -10vh;
+    // }
+    @include respond(phone){
+        margin-bottom: 0vh;
+    }
+}
+
+.section-features{
+    position: relative;
+    height: 90vh;
+    // margin-top: -10rem;
+    background-image: linear-gradient(to right,rgba($col_primary, 0.599),rgba($col_white, 0.599)), url("../images/classroom");
+    background-size: cover;
+    // background-position: top;
+    // clip-path: polygon(0 15vh, 70% 0, 100% 0, 100% 60vh, 30% 100%, 0 100%);
+    padding: 15rem 0;
+    transform: skewY(-7deg);
+    &>*{
+        transform: skewY(7deg);
+    }
+    @include respond(mid-screen){
+        height: unset;
+    }
+}
+.section-classes{
+    background-color: $col_grey_2;
+    padding: 25rem 0;
+    margin-top: -10rem;
+    @include respond(mid-screen){
+        padding: 25rem 0 10rem;
+        margin-top: -20rem;
+    }
+
+}
+.section-reviews{
+    position: relative;
+    padding: 15rem 0;
+    .btn-txt{
+        margin: 0 auto;
+    }
+    @include respond(mid-screen){
+        padding: 10rem 0;
+    }
+}

@@ -1,0 +1,40 @@
+.footer{
+    background-color: $col_grey_3;
+    height: 70vh;
+    &__img{
+        text-align: center;
+        padding: 5rem 0;
+        img{
+            &:hover{
+                transform: scale(1.1);
+                transition: all 0.5s;
+            }
+            // box-shadow: 0 1rem 6rem $col_white;
+        }
+    }
+
+    &__links{
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 0.1rem solid $col_white;
+        a{
+            padding: 1rem;
+            &:link,
+            &:visited{
+                text-decoration: none;
+                color: $col_white;
+            }
+            &:hover{
+                color: aquamarine;
+                background-color: $col_black;
+                transition: all 0.5s;
+            }
+        }
+    }
+    &__about{
+        text-align: center;
+        color: $col_white;
+        padding-top: 2rem;
+        border-top: 0.1rem solid $col_white;
+    }
+}

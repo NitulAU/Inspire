@@ -1,0 +1,124 @@
+.card{
+    position: relative;
+    //lower the value more dramatic. so give high value
+    perspective: 150rem;
+    -moz-perspective: 150rem; //to work in mozilla
+    //now add card side class (element) in html
+
+    height: 50rem;
+    &__side{
+        // color:$col_white;
+        height: 50rem;
+        font-size: 2rem;
+        transition: all .8s;
+        position: absolute; //doing this parent collapses.. no solution like clear fix ...do give same height for parent
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        overflow: hidden;  //background hides top border radius
+        border-radius: 3px;
+        box-shadow: 0 0.5rem 1rem rgba($col_black, $alpha: .5);
+        &--front{
+            background-color: $col_white;
+        }
+        &--back{
+            transform: rotateY(180deg);
+            &--1{
+                background-image:linear-gradient(to right bottom,$col_primary_light,$col_primary_dark);
+            }
+            &--2{
+                background-image:linear-gradient(to right bottom,$col_secondary_light,$col_secondary_dark);
+            }
+            &--3{
+                background-image:linear-gradient(to right bottom,$col_tertiary_light,$col_tertiary_dark);
+            }
+        }
+    }
+    &:hover &__side--front{
+        transform: rotateY(-180deg);
+    }
+    &:hover &__side--back{
+        transform: rotateY(0);
+    }
+
+    &__picture{
+        height:23rem;
+        background-size: cover;
+        background-blend-mode: screen;
+        // -webkit-clip-path: polygon(0 0, 100% 0, 100%  85% , 0 100% ) ;
+        clip-path: polygon(0 0, 100% 0, 100%  85% , 0 100% ) ;
+        &--1{
+            background-image: linear-gradient(to right bottom,$col_primary_light,$col_primary_dark),url("../images/card-bg-1.jpg");
+        }
+        &--2{
+            background-image: linear-gradient(to right bottom,$col_secondary_light,$col_secondary_dark),url("../images/card-bg-2.jpg");
+        }
+        &--3{
+            background-image: linear-gradient(to right bottom,$col_tertiary_light,$col_tertiary_dark),url("../images/card-bg-3.jpg");
+        }
+    }
+    &__heading{
+        color: $col_white;
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 60%;
+        text-align: right;
+    }
+    &__heading-span{
+        padding: 1rem 2.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        &--1{
+            background-image: linear-gradient(to right bottom, rgba($col_primary_light,0.75),rgba($col_primary_dark,0.75));
+        }
+        &--2{
+            background-image: linear-gradient(to right bottom, rgba($col_secondary_light,0.75),rgba($col_secondary_dark,0.75));
+        }
+        &--3{
+            background-image: linear-gradient(to right bottom, rgba($col_tertiary_light,0.75),rgba($col_tertiary_dark,0.75));
+        }
+    }
+    &__details{
+        padding: 3rem;
+        ul{
+            margin: 0 auto;
+            list-style: none;
+            width: 80%;
+            li{
+                text-align: center;
+                font-size: 1.5rem;
+                padding:1rem;
+                &:not(:last-child){
+                    border-bottom: 1px solid $col_grey_2;
+                }
+            }
+        }
+    }
+    &__cta{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // color: $col_white;
+        width: 90%;
+        text-align: center;
+    }
+    &__price-box{
+        text-align: center;
+        color: $col_white;
+        margin-bottom: 8rem;
+    }
+    &__price-only{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+    &__price-value{
+        font-size: 6rem;
+        font-weight: 100;
+    }
+}

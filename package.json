@@ -1,0 +1,14 @@
+{
+  "name": "inspire",
+  "version": "1.0.0",
+  "description": "inspir tution class",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass":"node-sass sass/main.scss styles/style1.css -w"
+  },
+  "author": "Nitul",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^7.0.3"
+  }
+}

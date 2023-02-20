@@ -1,0 +1,30 @@
+.row{
+    max-width: $row_width;
+    position: relative;
+    margin: 0 auto;
+    @include clearfix;
+    @include respond(mid-screen){
+        max-width: 50rem;
+        padding: 0 2rem;
+        float: none;
+    }
+    [class^="col-1-of"]{
+        float: left;
+        &:not(:last-child){
+            margin-right: $col_right_margin;
+        }
+        @include respond(mid-screen){
+            width: 100% !important;
+            margin: 1rem 0;
+        }
+    }
+    .col-1-of-2{
+        width: calc((100% - #{$col_right_margin}) / 2) ;
+    }
+    .col-1-of-3{
+        width: calc(( 100% - 2 * #{$col_right_margin} ) / 3);
+    }
+    .col-1-of-4{
+        width: calc((100% - 3 * #{$col_right_margin}) / 4);
+    }
+}

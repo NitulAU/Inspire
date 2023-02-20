@@ -1,0 +1,83 @@
+.review-container{
+    background-color: $col_white;
+    // border: 1px solid;
+    width: 70%;
+    min-width: 25rem;
+    // height: 30rem;
+    margin: 0 auto;
+    box-shadow: 0 0.5rem 4rem rgba($col_black,0.3);
+    transform: skewX(-15deg);
+    &>*{
+        transform: skewX(15deg); 
+    }
+    padding: 4rem;
+    &:not(:last-child){
+        margin-bottom: 4rem;
+    }
+    @include respond(tab-port){
+        transform: skewX(0);
+        &>*{
+            transform: skewX(0); 
+            text-align: center;
+        }
+    }
+}
+.review{
+    // height: 20rem;
+    margin: 2rem 0;
+    padding: 0;
+    font-size: $font_normal;
+    
+    &__shape{
+        width: 15rem;
+        height: 15rem;
+        float: left; 
+        // background-color: $col_black;           
+        -webkit-shape-outside: circle(50% at 50% 50%); //for safari
+        shape-outside: circle(50% at 50% 50%);//only works with float and must define height and width
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        position: relative;
+        
+        @include respond(tab-port){
+            float: unset;
+            margin: 1rem auto;
+        }
+        // @include respond(small-screen){
+            // display: none;
+        // }
+
+    }
+    &__img{
+        height: 100%;
+        transition: all 0.5s;
+        transform: translateX(-0.5rem) scale(1.1);
+    }
+    &__caption{
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%, -20%);
+        text-transform: uppercase;
+        color: $col_white;
+        text-align: center;
+        opacity: 0;
+        transition: all 0.5s;
+        backface-visibility: hidden;
+    }
+    &:hover &__caption{
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    &:hover &__img{
+        // opacity: 0.5;
+        filter: blur(1px) brightness(70%);
+        transform: scale(1);
+    }
+    &__text{
+        transform: translateX(3rem);
+        @include respond(tab-port){
+            transform: translateX(0);
+        }
+    }
+}
